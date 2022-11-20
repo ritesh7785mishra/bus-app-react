@@ -1,0 +1,123 @@
+{
+  "data": [
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "designation": "test",
+      "email": "test@",
+      "dateOfBirth": "2022-10-14",
+      "gender": "Male",
+      "phoneNumber": "123456789",
+      "address": "J.K Colony",
+      "city": "Kanpur",
+      "state": "Uttar Pradesh",
+      "zipCode": "208010",
+      "country": "India",
+      "password": "123456",
+      "id": "da40b28f-4902-4471-9b77-8a4f5d1ac6af",
+      "image": "https://cdn.filestackcontent.com/SudSc12RiRlZCqi8uz9w"
+    },
+    {
+      "0": "S",
+      "1": "a",
+      "2": "c",
+      "3": "h",
+      "4": "i",
+      "5": "n",
+      "6": " ",
+      "7": "T",
+      "8": "e",
+      "9": "n",
+      "10": "d",
+      "11": "u",
+      "12": "l",
+      "13": "k",
+      "14": "a",
+      "id": "5s757tQ",
+      "name": "Sachin Tendulkar",
+      "properties": {
+        "name": "",
+        "mobileNumber": "45678",
+        "email": "ritesh7785mishra@gmail.com",
+        "aadharNumber": "1234",
+        "conductorId": "1234",
+        "address": "J.K Colony",
+        "landmark": "ideal public school",
+        "district": "Kanpur",
+        "state": "Uttar Pradesh",
+        "pinCode": "208010",
+        "country": "India",
+        "password": "123456"
+      }
+    },
+    {
+      "id": "2RNHxsC",
+      "name": "Ramesh Kumar",
+      "properties": {
+        "mobileNumber": "9140229033",
+        "email": "ramesh@gmail.com",
+        "aadharNumber": "1234",
+        "conductorId": "1234",
+        "address": "J.K Colony",
+        "landmark": "ideal public school",
+        "district": "Kanpur",
+        "state": "Uttar Pradesh",
+        "pinCode": "208010",
+        "country": "India",
+        "password": "123456"
+      }
+    },
+    {
+      "name": "Tamesh Kumar",
+      "properties": {
+        "mobileNumber": "9140229033",
+        "email": "ramesh@gmail.com",
+        "aadharNumber": "1234",
+        "conductorId": "1234",
+        "address": "J.K Colony",
+        "landmark": "ideal public school",
+        "district": "Kanpur",
+        "state": "Uttar Pradesh",
+        "pinCode": "208010",
+        "country": "India",
+        "password": "123456"
+      },
+      "id": "gggbb4U"
+    },
+    {
+      "name": "famesh Kumar",
+      "properties": {
+        "mobileNumber": "9140229033",
+        "email": "ramesh@gmail.com",
+        "aadharNumber": "1234",
+        "conductorId": "1234",
+        "address": "J.K Colony",
+        "landmark": "ideal public school",
+        "district": "Kanpur",
+        "state": "Uttar Pradesh",
+        "pinCode": "208010",
+        "country": "India",
+        "password": "123456"
+      },
+      "id": "8K4jsZ2"
+    },
+    {
+      "name": "Ritesh Mishra new",
+      "properties": {
+        "mobileNumber": "9140229033",
+        "email": "kamlesh@123",
+        "aadharNumber": "1234",
+        "conductorId": "1234",
+        "address": "J.K Colony",
+        "landmark": "ideal public school",
+        "district": "Kanpur",
+        "state": "Uttar Pradesh",
+        "pinCode": "208010",
+        "country": "India",
+        "password": "123456"
+      },
+      "objectId": "89a76081-0cdb-4e75-ba57-892134771291",
+      "id": "bt6IOMt"
+    }
+  ]
+}

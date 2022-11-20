@@ -1,0 +1,28 @@
+.signInBox{
+    margin: 0 auto;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 375px;
+    padding: 2em;
+    box-shadow: 3px 6px 32px 0px rgba(136,136,136,0.39);
+
+}
+
+.forgetPassword{
+    font-size: 0.9rem;
+    align-self: flex-end;
+    margin: none;
+    color: gray;
+    cursor: pointer;
+}
+
+.loginBtn{
+    border: none;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 20px;
+    background: linear-gradient(90deg, rgba(0,212,255,1) 10%, rgba(189,72,195,1) 64%);
+    padding: 0.4em;
+    cursor: pointer;
+    margin-bottom: 2em;
+}
