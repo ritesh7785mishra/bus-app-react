@@ -1,13 +1,28 @@
 import { Box, Button, TextField } from '@mui/material'
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './Admin.css'
-import axios from 'axios'
 import { Stack } from '@mui/system'
+import {useDispatch,useSelector} from 'react-redux'
+import {fetchConductors} from './adminSlice'
+import { addConductor } from './adminSlice'
+import { adminKey, apiKey } from '../../util'
+import { useNavigate } from 'react-router-dom'
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import {IconButton} from '@mui/material'
+
 
 function Admin() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const admin = useSelector(state => state.admin)
     const [userName, setUserName] = useState("")
     const[userId, setUserId] = useState(null)
 
+    useEffect(()=>{
+        dispatch(fetchConductors())
+    },[])
+
+    console.log(admin.conductors)
     const [userProperties, setUserProperties] = useState({
         mobileNumber:"",
         email:"",
@@ -24,7 +39,7 @@ function Admin() {
 
     const {mobileNumber,email,aadharNumber,conductorId,address,landmark,district,state,pinCode,country,password} = userProperties
 
-
+  
     function handleChange(e){
         setUserProperties({
             ...userProperties,
@@ -39,34 +54,39 @@ function Admin() {
 
     function handleSubmit(){
         let userObj = {name:userName,properties:{...userProperties}}
-        let id;
-
-        fetch("https://api.tomtom.com/locationHistory/1/objects/object?key=BDPPjyvXBVAzxOAGcWRV98qIHP978rko&adminKey=JDKUpg4BO1ZDPfGSrqG0QlbrmBYOhlfwDw0WlrCytJUo5IyO",{
+        fetch(`https://api.tomtom.com/locationHistory/1/objects/object?key=${apiKey}&adminKey=${adminKey}`,{
                 method:'POST',
                 headers:{"Content-Type":"application/json"},
                 body: JSON.stringify(userObj)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log("This is the returned user id",data.id)
-            userObj={...userObj,objectId:data.id}
-            console.log(userObj)
-
-
-            fetch("http://localhost:3000/data",{
-             method:'POST',
-                headers:{"Content-Type":"application/json"},
-                body: JSON.stringify(userObj)
-            })  
-        } )
-
-
-        
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log("This is the returned user id",data.id)
+                userObj={...userObj,id: data.id}
+                 fetch("http://localhost:8000/data",{
+                    method:'POST',
+                    headers:{"Content-Type":"application/json"},
+                    body: JSON.stringify(userObj)
+                })
+                .then(()=>{
+                    dispatch(addConductor(userObj))
+                    navigate('/all-conductors')
+                })  
+            })
+ 
     }
 
   return (
     <div className="adminBox">
-        <h1>Admin</h1>
+        
+
+        <div className="heading">
+            <h1>Admin</h1>
+            <IconButton color='primary' onClick={()=>{navigate('/all-conductors')}}>
+                <KeyboardReturnIcon/>
+            </IconButton>
+        </div>
+        
         <Stack spacing={2}>
             <TextField value={userName} name='name' onChange={(e)=>handleNameChange(e)} label='Name' variant='outlined' size='small'></TextField>
             <TextField value={mobileNumber} name='mobileNumber' onChange={(e)=>handleChange(e)} label='Mobile Number' variant='outlined' size='small'></TextField>
@@ -86,8 +106,9 @@ function Admin() {
             <TextField value={country} name='country' onChange={(e)=>handleChange(e)} label='Country' variant='outlined' size='small'></TextField>
             <TextField value={password} name='password' onChange={(e)=>handleChange(e)} label='Password' variant='outlined' size='small'></TextField>
 
-            <Button onClick={handleSubmit}> Add Details to Server</Button>
+            <Button onClick={handleSubmit} variant='contained'> Add Details to Server</Button>
 
+            
         </Stack>
 
     </div>

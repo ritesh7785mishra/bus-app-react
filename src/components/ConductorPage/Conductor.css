@@ -8,3 +8,32 @@
 
 }
 
+.nameAndId{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4em;
+}
+
+.conductorName,
+.conductorId{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nameHead{
+    margin-left: 0.5em;
+}
+.idHead{
+    margin-right: 0.5em;
+}
+
+.spaceIndicationButton{
+    width: 33%;
+}
+
+.locationSharing{
+    width: 75%;
+    margin-right: 3em;
+}
