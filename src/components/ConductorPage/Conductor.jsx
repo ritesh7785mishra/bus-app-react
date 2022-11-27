@@ -12,8 +12,11 @@ import {useDispatch, useSelector} from 'react-redux'
 function Conductor() {
 
     const conductor = useSelector(state => state.conductor.currentConductor)
-    
-
+    const [fullBtn, setFullBtn] = useState(false)
+    const [standingBtn, setStandingBtn] = useState(false)
+    const [emptySeatsBtn, setEmptySeatsBtn] = useState(false)
+    const [shareLocationBtn, setShareLocationBtn] = useState(false);
+    const [stopLocationBtn, setStopLocationBtn] = useState(false);
 
 
     useEffect(()=>{
@@ -70,14 +73,38 @@ function Conductor() {
         
         <Stack spacing={5}>
             <Stack spacing={2}  >
-                 <Button sx={{alignSelf: 'center'}} startIcon={<ShareLocationIcon fontSize='large'/>} variant='contained' className='locationSharing' >Start Sharing Location</Button>
-                <Button sx={{alignSelf: 'center'}} startIcon={<LocationOffIcon fontSize='large'/>} variant='contained' className='locationSharing' color='error'>Stop Sharing Location</Button>
+                 <Button 
+                 onClick={()=>{
+                    setShareLocationBtn(preVal => !preVal)
+                    setStopLocationBtn(false)
+                 }}
+                 sx={{alignSelf: 'center'}} startIcon={<ShareLocationIcon fontSize='large'/>} variant={shareLocationBtn?'contained':'outlined'} className='locationSharing' >Start Sharing Location</Button>
+                <Button 
+                onClick={()=>{
+                    setShareLocationBtn(false)
+                    setStopLocationBtn(preVal => !preVal)
+                 }}
+                sx={{alignSelf: 'center'}} startIcon={<LocationOffIcon fontSize='large'/>} variant={stopLocationBtn?'contained':'outlined'} className='locationSharing' color='error'>Stop Sharing Location</Button>
             </Stack>
             
             <Stack spacing={3} direction='row'>
-                <Button className='spaceIndicationButton' variant='contained' color='error'>Full</Button>
-                <Button className='spaceIndicationButton' variant='contained' color='primary'>Standing Space</Button>
-                <Button className='spaceIndicationButton' variant='contained' color='success'>Empty Seats</Button>
+                <Button onClick={()=>{
+                    setFullBtn(preVal => !preVal)
+                    setStandingBtn(false)
+                    setEmptySeatsBtn(false)
+                }} className='spaceIndicationButton' variant={fullBtn?'contained':'outlined'} color='error'>Full</Button>
+                <Button
+                onClick={()=>{
+                    setFullBtn(false)
+                    setStandingBtn(preVal => !preVal)
+                    setEmptySeatsBtn(false)
+                }} className='spaceIndicationButton' variant={standingBtn?'contained':'outlined'} color='primary'>Standing Space</Button>
+                <Button 
+                onClick={()=>{
+                    setFullBtn(false)
+                    setStandingBtn(false)
+                    setEmptySeatsBtn(preVal => !preVal)
+                }}className='spaceIndicationButton' variant={emptySeatsBtn?'contained':'outlined'} color='success'>Empty Seats</Button>
             </Stack>
         </Stack>
         
